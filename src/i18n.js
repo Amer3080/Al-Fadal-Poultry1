@@ -7,11 +7,13 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 
 i18n
-  .use(initReactI18next)
   .use(LanguageDetector)
   .use(HttpApi)
+  .use(initReactI18next)
   .init({
     fallbackLng: "en",
+    supportedLngs: ["en", "ar"],
+    nonExplicitSupportedLngs: true,
     detection: {
       order: [
         "cookie",
@@ -28,4 +30,5 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
+    react: { useSuspense: false },
   });
