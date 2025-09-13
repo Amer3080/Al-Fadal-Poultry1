@@ -1,5 +1,5 @@
 // src/Components/MySlider/MySlider.jsx
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
@@ -7,6 +7,7 @@ import { Box, Button, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { DataContext } from "../../../Components/Context/DataContext.jsx";
 import { Link } from "react-router-dom";
+import "wicg-inert";
 
 import img1 from "../../../assets/images/1.jpg";
 import img2 from "../../../assets/images/2.jpg";
@@ -64,10 +65,26 @@ export default function MySlider() {
     pauseOnHover: false,
     adaptiveHeight: false,
     accessibility: true,
-    focusOnChange: false,
+    focusOnChange: true,
+    afterChange: handleAfterChange,
   };
 
   const slides = [img3, img2, img1];
+  const slickRef = useRef(null);
+
+  // Runs after each slide change
+  const handleAfterChange = () => {
+    const root = slickRef.current?.innerSlider?.list;
+    if (!root) return;
+
+    // Mark all hidden slides as inert
+    Array.from(root.querySelectorAll(".slick-slide")).forEach((slide) => {
+      const hidden = slide.getAttribute("aria-hidden") === "true";
+      if (hidden) slide.setAttribute("inert", "");
+      else slide.removeAttribute("inert");
+    });
+  };
+  useEffect(handleAfterChange, []);
 
   return (
     // Keep it inside your normal Container so it never overflows
@@ -80,7 +97,7 @@ export default function MySlider() {
           overflow: "hidden",
         }}>
         <GradientOverlay />
-        <Slider {...settings}>
+        <Slider ref={slickRef} {...settings}>
           {slides.map((src, idx) => (
             <Box key={idx} sx={{ position: "relative" }}>
               <SlideImage src={src} alt={`Slide ${idx + 1}`} />
