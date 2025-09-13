@@ -5,8 +5,8 @@ import { useTranslation, initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
-import enTranslation from "./locales/en/translation.json";
-import arTranslation from "./locales/ar/translation.json";
+import enTranslation from "../public/locales/en/translation.json";
+import arTranslation from "../public/locales/ar/translation.json";
 
 i18n
   .use(LanguageDetector)
