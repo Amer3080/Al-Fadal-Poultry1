@@ -75,13 +75,13 @@ function App() {
           crossOrigin="anonymous"
         />
         {/* The font */}
-        <link
+        {/* <link
           rel="preload"
           href="/node_modules/slick-carousel/slick/fonts/slick.woff"
           as="font"
           type="font/woff"
           crossorigin
-        />
+        /> */}
 
         {/* Preload core Roboto stylesheet */}
         <link

@@ -63,6 +63,8 @@ export default function MySlider() {
     dots: false,
     pauseOnHover: false,
     adaptiveHeight: false,
+    accessibility: true,
+    focusOnChange: false,
   };
 
   const slides = [img3, img2, img1];
