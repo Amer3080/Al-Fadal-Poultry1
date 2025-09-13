@@ -106,12 +106,17 @@ export default function MySlider() {
             }}>
             <SlideImage src={src} alt={`Slide ${idx + 1}`} />
             <TextOverlay>
+              {/* Semantically h2, visually h5 */}
               <Typography
+                component="h2"
                 variant="h5"
                 sx={{ fontFamily: "Marhey", fontSize: "2vw" }}>
                 {t("No antibiotics, no growth stimulants!")}
               </Typography>
+
+              {/* Semantically h3, visually h2 */}
               <Typography
+                component="h3"
                 variant="h2"
                 sx={{
                   fontSize: locale === "en" ? "5vw" : "6vw",
@@ -121,11 +126,15 @@ export default function MySlider() {
                 }}>
                 {t("Fresh chickens for you every day!")}
               </Typography>
+
+              {/* Semantically paragraph */}
               <Typography
+                component="p"
                 variant="body1"
                 sx={{ fontFamily: "Marhey", fontSize: "2vw", mb: 2 }}>
                 {t("From farm to table, our poultry is simply incredible!")}
               </Typography>
+
               <Button
                 component={Link}
                 to="/contact-us"
