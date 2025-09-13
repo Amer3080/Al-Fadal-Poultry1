@@ -93,13 +93,17 @@ export default function MySlider() {
       sx={{
         position: "relative",
         width: "100%",
-        height: `100%`,
         overflow: "hidden",
       }}>
       <GradientOverlay />
       <Slider ref={slickRef} {...settings}>
         {[img3, img2, img1].map((src, idx) => (
-          <Box key={idx} sx={{ position: "relative", height: "100%" }}>
+          <Box
+            key={idx}
+            sx={{
+              position: "relative",
+              height: { xs: "", sm: "", md: "", lg: "", xl: "640px" },
+            }}>
             <SlideImage src={src} alt={`Slide ${idx + 1}`} />
             <TextOverlay>
               <Typography
