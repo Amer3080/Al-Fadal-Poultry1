@@ -53,22 +53,6 @@ export default function MySlider() {
     i18n.changeLanguage(locale);
   }, [i18n, locale]);
 
-  const settings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: false,
-    pauseOnHover: false,
-    adaptiveHeight: false,
-    accessibility: true,
-    focusOnChange: true,
-    afterChange: handleAfterChange,
-  };
-
   const slides = [img3, img2, img1];
   const slickRef = useRef(null);
 
@@ -85,6 +69,22 @@ export default function MySlider() {
     });
   };
   useEffect(handleAfterChange, []);
+
+  const settings = {
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    fade: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    adaptiveHeight: false,
+    accessibility: true,
+    focusOnChange: true,
+    afterChange: handleAfterChange,
+  };
 
   return (
     // Keep it inside your normal Container so it never overflows
