@@ -9,13 +9,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import GrainIcon from "@mui/icons-material/Grain";
 import { Link } from "react-router-dom";
 
-const {
-  images,
-  srcSet: { avif, webp },
-} = heroMeta;
-
 const StyledHeroSection = styled(Box)(({ theme }) => ({
-  backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${images[0].src})`,
+  backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -28,12 +23,12 @@ const StyledHeroSection = styled(Box)(({ theme }) => ({
   padding: "120px 0",
 
   [theme.breakpoints.up("sm")]: {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${images[1].src})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
     padding: "80px 0",
   },
 
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${images[2].src})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
     padding: "80px 0",
   },
 
