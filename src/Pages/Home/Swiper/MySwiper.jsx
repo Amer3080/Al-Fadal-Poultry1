@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
-import { Box, Button, Typography, Container } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { DataContext } from "../../../Components/Context/DataContext.jsx";
 import { Link } from "react-router-dom";
@@ -20,8 +21,8 @@ const fadeZoom = keyframes`
 
 const SlideImage = styled("img")`
   width: 100%;
+  height: 100%; // fill the wrapper’s height
   object-fit: cover;
-  height: 650px;
   animation: ${fadeZoom} 7.5s ease alternate infinite;
   z-index: 1;
 `;
@@ -46,22 +47,20 @@ const TextOverlay = styled(Box)({
 });
 
 export default function MySlider() {
+  const theme = useTheme();
   const { t, i18n } = useTranslation();
   const { locale } = useContext(DataContext);
+  const slickRef = useRef(null);
 
+  // change language on locale updates
   useEffect(() => {
     i18n.changeLanguage(locale);
   }, [i18n, locale]);
 
-  const slides = [img3, img2, img1];
-  const slickRef = useRef(null);
-
-  // Runs after each slide change
+  // inert hidden slides
   const handleAfterChange = () => {
     const root = slickRef.current?.innerSlider?.list;
     if (!root) return;
-
-    // Mark all hidden slides as inert
     Array.from(root.querySelectorAll(".slick-slide")).forEach((slide) => {
       const hidden = slide.getAttribute("aria-hidden") === "true";
       if (hidden) slide.setAttribute("inert", "");
@@ -86,59 +85,59 @@ export default function MySlider() {
     afterChange: handleAfterChange,
   };
 
+  // toolbar.minHeight is 56px on mobile, 64px on md+
+
   return (
-    // Keep it inside your normal Container so it never overflows
-    <>
-      <Box
-        component="section"
-        sx={{
-          position: "relative",
-          width: "100%",
-          overflow: "hidden",
-        }}>
-        <GradientOverlay />
-        <Slider ref={slickRef} {...settings}>
-          {slides.map((src, idx) => (
-            <Box key={idx} sx={{ position: "relative" }}>
-              <SlideImage src={src} alt={`Slide ${idx + 1}`} />
-              <TextOverlay>
-                <Typography
-                  variant="h5"
-                  sx={{ fontFamily: "Marhey", fontSize: "2vw" }}>
-                  {t("No antibiotics, no growth stimulants!")}
-                </Typography>
-                <Typography
-                  variant="h2"
-                  sx={{
-                    fontSize: locale === "en" ? "5vw" : "6vw",
-                    fontFamily: locale === "en" ? "Oleo Script" : "El Messiri",
-                    fontWeight: locale === "en" ? 400 : 900,
-                    my: 1,
-                  }}>
-                  {t("Fresh chickens for you every day!")}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontFamily: "Marhey", fontSize: "2vw", mb: 2 }}>
-                  {t("From farm to table, our poultry is simply incredible!")}
-                </Typography>
-                <Button
-                  component={Link}
-                  to="/contact-us"
-                  variant="contained"
-                  color="success"
-                  sx={{
-                    textTransform: "capitalize",
-                    borderRadius: 2,
-                    fontSize: { xs: 12, md: 25 },
-                  }}>
-                  {t("Contact Us")}
-                </Button>
-              </TextOverlay>
-            </Box>
-          ))}
-        </Slider>
-      </Box>
-    </>
+    <Box
+      component="section"
+      sx={{
+        position: "relative",
+        width: "100%",
+        height: `100%`,
+        overflow: "hidden",
+      }}>
+      <GradientOverlay />
+      <Slider ref={slickRef} {...settings}>
+        {[img3, img2, img1].map((src, idx) => (
+          <Box key={idx} sx={{ position: "relative", height: "100%" }}>
+            <SlideImage src={src} alt={`Slide ${idx + 1}`} />
+            <TextOverlay>
+              <Typography
+                variant="h5"
+                sx={{ fontFamily: "Marhey", fontSize: "2vw" }}>
+                {t("No antibiotics, no growth stimulants!")}
+              </Typography>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontSize: locale === "en" ? "5vw" : "6vw",
+                  fontFamily: locale === "en" ? "Oleo Script" : "El Messiri",
+                  fontWeight: locale === "en" ? 400 : 900,
+                  my: 1,
+                }}>
+                {t("Fresh chickens for you every day!")}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ fontFamily: "Marhey", fontSize: "2vw", mb: 2 }}>
+                {t("From farm to table, our poultry is simply incredible!")}
+              </Typography>
+              <Button
+                component={Link}
+                to="/contact-us"
+                variant="contained"
+                color="success"
+                sx={{
+                  textTransform: "capitalize",
+                  borderRadius: 2,
+                  fontSize: { xs: 12, md: 25 },
+                }}>
+                {t("Contact Us")}
+              </Button>
+            </TextOverlay>
+          </Box>
+        ))}
+      </Slider>
+    </Box>
   );
 }
