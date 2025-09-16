@@ -1,0 +1,128 @@
+/* ===========================================
+   Critical font (preload this in index.html)
+   Place the file /public/fonts/el-messiri-400.woff2
+   <link rel="preload" href="/fonts/el-messiri-400.woff2" as="font" type="font/woff2" crossorigin>
+   =========================================== */
+@font-face {
+  font-family: "El Messiri";
+  src: url("/fonts/el-messiri-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* adjust if you create a narrower subset */
+}
+
+/* ===========================================
+   System / fallback
+   Keep Roboto as a critical UI fallback (small file)
+   Place files in /public/fonts/roboto-400.woff2 and roboto-700.woff2
+   =========================================== */
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===========================================
+   Deferred decorative fonts
+   Put these woff2 files under /public/fonts and load them after hydration
+   Use the deferred loader (dynamic stylesheet or FontFace API)
+   =========================================== */
+
+/* Marhey */
+@font-face {
+  font-family: "Marhey";
+  src: url("/fonts/marhey-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Marhey";
+  src: url("/fonts/marhey-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Oleo Script */
+@font-face {
+  font-family: "Oleo Script";
+  src: url("/fonts/oleo-script-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Caveat */
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/caveat-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Noto Nastaliq Urdu */
+@font-face {
+  font-family: "Noto Nastaliq Urdu";
+  src: url("/fonts/noto-nastaliq-urdu-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fugaz One */
+@font-face {
+  font-family: "Fugaz One";
+  src: url("/fonts/fugaz-one-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rubik */
+@font-face {
+  font-family: "Rubik";
+  src: url("/fonts/rubik-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Merienda */
+@font-face {
+  font-family: "Merienda";
+  src: url("/fonts/merienda-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Orbitron */
+@font-face {
+  font-family: "Orbitron";
+  src: url("/fonts/orbitron-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Archivo */
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/archivo-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
