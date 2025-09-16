@@ -29,7 +29,7 @@ function Home() {
       {
         "@type": "Organization",
         name: "Al-Fadal Poultry Farm",
-        url: "https://www.yourdomain.com",
+        url: "https://al-fadal-poultry.vercel.app/",
         logo: "https://www.yourdomain.com/logo.png",
         sameAs: [
           "https://www.facebook.com/yourpage",
