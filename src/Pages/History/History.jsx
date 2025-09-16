@@ -38,7 +38,7 @@ import imageOne from "../../assets/images/s1.avif";
 import imageTwo from "../../assets/images/s2.avif";
 import imageThree from "../../assets/images/s3.avif";
 import imageFour from "../../assets/images/s5.avif";
-import fallbackImage from "../../assets/images/1.jpg";
+import fallbackImage from "../../assets/images/1.webp";
 
 import { Helmet } from "react-helmet-async";
 import { DataContext } from "../../Components/Context/DataContext";
