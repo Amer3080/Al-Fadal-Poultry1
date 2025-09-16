@@ -1,18 +1,16 @@
-// src/Components/MySlider/MySlider.jsx
-import React, { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { Box, Button, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { DataContext } from "../../../Components/Context/DataContext.jsx";
 import { Link } from "react-router-dom";
 import "wicg-inert";
 
-import img1 from "../../../assets/images/1.jpg";
-import img2 from "../../../assets/images/2.jpg";
-import img3 from "../../../assets/images/4.jpg";
+import img1 from "../../../assets/images/1.webp";
+import img2 from "../../../assets/images/2.webp";
+import img3 from "../../../assets/images/4.webp";
 
 const fadeZoom = keyframes`
   0%   { transform: scale(1); }
@@ -38,7 +36,7 @@ const GradientOverlay = styled(Box)({
 
 const TextOverlay = styled(Box)({
   position: "absolute",
-  top: "25%",
+  top: "30%",
   left: 0,
   right: 0,
   zIndex: 3,
@@ -47,7 +45,6 @@ const TextOverlay = styled(Box)({
 });
 
 export default function MySlider() {
-  const theme = useTheme();
   const { t, i18n } = useTranslation();
   const { locale } = useContext(DataContext);
   const slickRef = useRef(null);

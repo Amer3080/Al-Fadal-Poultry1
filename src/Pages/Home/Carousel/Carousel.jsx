@@ -8,10 +8,10 @@ import React, {
 } from "react";
 import { styled } from "@mui/system";
 import { Box, Typography } from "@mui/material";
-import carouselStyle from "./Carousel.Style.module.css";
 import { DataContext } from "../../../Components/Context/DataContext";
 import { useTranslation } from "react-i18next";
 import iconPng from "../../../assets/images/11.avif";
+
 const Slider = lazy(async () => {
   await Promise.all([
     import("slick-carousel/slick/slick.css"),
@@ -37,9 +37,11 @@ const IconImage = styled("img")({
 function Carousel() {
   const { locale } = useContext(DataContext);
   const { t, i18n } = useTranslation();
+
   useEffect(() => {
     i18n.changeLanguage(locale);
   }, [i18n, locale]);
+
   const slides = useMemo(
     () => [
       t("Al-Fadal Poultry"),
@@ -71,41 +73,41 @@ function Carousel() {
   );
 
   return (
-    <>
-      <Box
-        component="section"
-        aria-labelledby="carousel-heading"
-        sx={{ mb: 8 }}
-        className={carouselStyle.custom_slider}>
-        <Suspense
-          fallback={<div style={{ textAlign: "center" }}>{t("Loading…")}</div>}>
-          <Slider {...settings}>
-            {slides.map((label, idx) => (
-              <LogoItem key={idx}>
-                <Typography
-                  component="span"
-                  sx={{
-                    fontFamily: "Marhey",
-                    fontSize: "3.5vw",
-                    fontWeight: 900,
-                    color: "#255946",
-                    whiteSpace: "nowrap",
-                  }}>
-                  {label}
-                </Typography>
-                <IconImage
-                  crossOrigin="anonymous"
-                  src={iconPng}
-                  alt={t("Chicken icon")}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </LogoItem>
-            ))}
-          </Slider>
-        </Suspense>
-      </Box>
-    </>
+    <Box
+      component="section"
+      aria-labelledby="carousel-heading"
+      sx={{
+        mb: 8,
+        overflow: "hidden !important", // merged from .custom_slider
+      }}>
+      <Suspense
+        fallback={<div style={{ textAlign: "center" }}>{t("Loading…")}</div>}>
+        <Slider {...settings}>
+          {slides.map((label, idx) => (
+            <LogoItem key={idx}>
+              <Typography
+                component="span"
+                sx={{
+                  fontFamily: "Marhey",
+                  fontSize: "3.5vw",
+                  fontWeight: 900,
+                  color: "#255946",
+                  whiteSpace: "nowrap",
+                }}>
+                {label}
+              </Typography>
+              <IconImage
+                crossOrigin="anonymous"
+                src={iconPng}
+                alt={t("Chicken icon")}
+                loading="lazy"
+                decoding="async"
+              />
+            </LogoItem>
+          ))}
+        </Slider>
+      </Suspense>
+    </Box>
   );
 }
 

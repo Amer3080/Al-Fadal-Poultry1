@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useContext } from "react";
+import  { Suspense, lazy, useContext } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "animate.css/animate.min.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";

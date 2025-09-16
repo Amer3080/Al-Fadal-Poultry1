@@ -10,12 +10,6 @@ import logo3 from "../../../assets/images/logos/3.avif";
 import logo4 from "../../../assets/images/logos/4.avif";
 import logo5 from "../../../assets/images/logos/5.avif";
 import logo6 from "../../../assets/images/logos/6.avif";
-import logo7 from "../../../assets/images/logos/7.avif";
-import logo8 from "../../../assets/images/logos/8.avif";
-import logo9 from "../../../assets/images/logos/9.avif";
-import logo10 from "../../../assets/images/logos/10.avif";
-import logo11 from "../../../assets/images/logos/11.avif";
-import logo12 from "../../../assets/images/logos/12.avif";
 
 const Slider = lazy(() => import("react-slick"));
 
@@ -36,12 +30,6 @@ function CompanyLogos() {
       { src: logo4, alt: "Partner Company 4", width: 250, height: 150 },
       { src: logo5, alt: "Partner Company 5", width: 250, height: 150 },
       { src: logo6, alt: "Partner Company 6", width: 250, height: 150 },
-      { src: logo7, alt: "Partner Company 7", width: 250, height: 150 },
-      { src: logo8, alt: "Partner Company 8", width: 250, height: 150 },
-      { src: logo9, alt: "Partner Company 9", width: 250, height: 150 },
-      { src: logo10, alt: "Partner Company 10", width: 250, height: 150 },
-      { src: logo11, alt: "Partner Company 11", width: 250, height: 150 },
-      { src: logo12, alt: "Partner Company 12", width: 250, height: 150 },
     ],
     []
   );

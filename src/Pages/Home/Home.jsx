@@ -9,7 +9,7 @@ const About = lazy(() => import("./About/About"));
 const Carousel = lazy(() => import("./Carousel/Carousel"));
 const Offering = lazy(() => import("./Offering/Offering"));
 const Statistic = lazy(() => import("./Statistic/Statistic"));
-// const CompanyLogos = lazy(() => import("./CompanyLogos/CompanyLogos"));
+const CompanyLogos = lazy(() => import("./CompanyLogos/CompanyLogos"));
 const MyGallery = lazy(() => import("./MyGallery/MyGallery"));
 const Testimonials = lazy(() => import("./Testimonials/Testimonials"));
 const IsoCertificates = lazy(() => import("./IsoCertificates/IsoCertificates"));
@@ -65,7 +65,7 @@ function Home() {
         <Carousel />
         <Offering />
         <Statistic />
-        {/* <CompanyLogos /> */}
+        <CompanyLogos />
         <MyGallery />
         <IsoCertificates />
         <Testimonials />
