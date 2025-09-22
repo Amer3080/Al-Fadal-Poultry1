@@ -67,8 +67,10 @@ function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Your+Font:wght@400;700&display=swap"
-          rel="stylesheet"
+          as="style"
+          href="https://fonts.googleapis.com/css2?display=swap&amp;family=Open+Sans"
+          onload="this.onload=null; this.rel='stylesheet'; document.body.classList.add('fontLoaded')"
+          rel="preload"
         />
 
         {/* The font */}
