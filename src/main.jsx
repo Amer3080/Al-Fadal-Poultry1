@@ -14,6 +14,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "wicg-inert";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 // Fonts Packages
 import "@fontsource/marhey/400.css";
 import "@fontsource/marhey/700.css";

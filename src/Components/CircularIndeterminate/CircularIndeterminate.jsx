@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import logoMeta from "../../assets/images/Logo.avif?width=200;400&format=avif&metadata";
+import logoMeta from "../../assets/images/Logo.webp";
 
 export default function Loader() {
   const { images = [] } = logoMeta;
@@ -22,12 +22,12 @@ export default function Loader() {
           overflow: "hidden",
           zIndex: 9999,
         }}>
-        <img
+        {/* <img
           src={logoMeta.src || logoMeta}
           width={200}
           alt="logo"
           className="animate__animated animate__rotateIn"
-        />
+        /> */}
       </Box>
     );
   }
@@ -45,7 +45,7 @@ export default function Loader() {
         overflow: "hidden",
         zIndex: 9999,
       }}>
-      <img
+      {/* <img
         src={defaultSrc}
         srcSet={avifSrcSet}
         sizes="200px"
@@ -53,7 +53,7 @@ export default function Loader() {
         height={height}
         alt="logo"
         className="animate__animated animate__rotateIn"
-      />
+      /> */}
     </Box>
   );
 }

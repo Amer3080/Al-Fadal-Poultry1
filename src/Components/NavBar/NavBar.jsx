@@ -1,4 +1,4 @@
-import React, {
+import {
   useContext,
   useEffect,
   useState,
@@ -27,7 +27,8 @@ import {
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { DataContext } from "../Context/DataContext";
-import logo from "../../assets/images/Logo.avif";
+import logoWebp from "../../assets/images/Logo_75.webp";
+import logoAvif from "../../assets/images/Logo_75.webp";
 const MenuIcon = lazy(() => import("@mui/icons-material/Menu"));
 const CottageIcon = lazy(() => import("@mui/icons-material/Cottage"));
 const LanguageIcon = lazy(() => import("@mui/icons-material/Language"));
@@ -103,10 +104,7 @@ const NavBar = () => {
   const { theme, setTheme, locale, setLocale } = useContext(DataContext);
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
-
-  // Handlers
   const toggleDrawer = useCallback((val) => () => setOpen(val), []);
-
   const handleLanguage = useCallback(() => {
     const next = locale === "ar" ? "en" : "ar";
     setLocale(next);
@@ -142,13 +140,20 @@ const NavBar = () => {
         onClick={toggleDrawer(false)}
         sx={sx.drawerPaper}>
         <Box sx={sx.drawerLogoBox}>
-          <Box
-            component="img"
-            src={logo}
-            alt="logo"
-            width="45px"
-            loading="eager"
-          />
+          <picture>
+            <source srcSet={logoAvif} type="image/avif" />
+            <source srcSet={logoWebp} type="image/webp" />
+            <img
+              src={logoWebp}
+              alt="Al-Fadal Poultry Logo"
+              width="60"
+              height="57"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              style={{ display: "block" }}
+            />
+          </picture>
           <Typography
             component="h1"
             to="/"
@@ -232,13 +237,20 @@ const NavBar = () => {
         <Toolbar disableGutters>
           {/* Desktop Logo */}
           <Box sx={sx.logoLarge}>
-            <Box
-              component="img"
-              src={logo}
-              alt="logo"
-              width="60px"
-              loading="eager"
-            />
+            <picture>
+              <source srcSet={logoAvif} type="image/avif" />
+              <source srcSet={logoWebp} type="image/webp" />
+              <img
+                src={logoWebp}
+                alt="Al-Fadal Poultry Logo"
+                width="60"
+                height="57"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                style={{ display: "block" }}
+              />
+            </picture>
             <Typography
               component="h1"
               to="/"
@@ -258,13 +270,20 @@ const NavBar = () => {
 
           {/* Mobile Logo */}
           <Box sx={sx.logoSmall}>
-            <Box
-              component="img"
-              src={logo}
-              alt="logo"
-              width="60px"
-              loading="eager"
-            />
+            <picture>
+              <source srcSet={logoAvif} type="image/avif" />
+              <source srcSet={logoWebp} type="image/webp" />
+              <img
+                src={logoWebp}
+                alt="Al-Fadal Poultry Logo"
+                width="60"
+                height="57"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                style={{ display: "block" }}
+              />
+            </picture>
             <Typography
               component={Link}
               to="/"

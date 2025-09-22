@@ -3,3 +3,12 @@
   padding: 0%;
   box-sizing: border-box;
 }
+
+/* Put this after slick CSS */
+@font-face {
+  font-family: "slick";
+  src: local("Arial");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

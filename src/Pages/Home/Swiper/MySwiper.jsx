@@ -8,9 +8,12 @@ import { DataContext } from "../../../Components/Context/DataContext.jsx";
 import { Link } from "react-router-dom";
 import "wicg-inert";
 
-import img1 from "../../../assets/images/1.webp";
-import img2 from "../../../assets/images/2.webp";
-import img3 from "../../../assets/images/4.webp";
+import img1Webp from "../../../assets/images/1.webp";
+import img1Avif from "../../../assets/images/1.webp";
+import img2Webp from "../../../assets/images/2.webp";
+import img2Avif from "../../../assets/images/2.webp";
+import img3Webp from "../../../assets/images/4.webp";
+import img3Avif from "../../../assets/images/4.webp";
 
 const fadeZoom = keyframes`
   0%   { transform: scale(1); }
@@ -43,6 +46,30 @@ const TextOverlay = styled(Box)({
   textAlign: "center",
   color: "#fff",
 });
+
+const images = [
+  {
+    webp: img3Webp,
+    avif: img3Avif,
+    alt: "Fresh poultry farm landscape",
+    width: 1280,
+    height: 717,
+  },
+  {
+    webp: img2Webp,
+    avif: img2Avif,
+    alt: "Healthy chickens in the field",
+    width: 1280,
+    height: 717,
+  },
+  {
+    webp: img1Webp,
+    avif: img1Avif,
+    alt: "Natural poultry closeup",
+    width: 1280,
+    height: 717,
+  },
+];
 
 export default function MySlider() {
   const { t, i18n } = useTranslation();
@@ -94,14 +121,28 @@ export default function MySlider() {
       }}>
       <GradientOverlay />
       <Slider ref={slickRef} {...settings}>
-        {[img3, img2, img1].map((src, idx) => (
+        {images.map((img, idx) => (
           <Box
             key={idx}
             sx={{
               position: "relative",
-              height: { xs: "", sm: "", md: "", lg: "", xl: "640px" },
+              height: { xs: 240, sm: 320, md: 400, lg: 480, xl: 640 },
             }}>
-            <SlideImage src={src} alt={`Slide ${idx + 1}`} />
+            <picture>
+              <source srcSet={img.avif} type="image/avif" />
+              <source srcSet={img.webp} type="image/webp" />
+              <SlideImage
+                src={img.webp}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                srcSet={`${img.avif} 1x, ${img.webp} 2x`}
+                sizes="(max-width: 600px) 100vw, 1280px"
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchpriority={idx === 0 ? "high" : "auto"}
+                decoding="async"
+              />
+            </picture>
             <TextOverlay>
               {/* Semantically h2, visually h5 */}
               <Typography

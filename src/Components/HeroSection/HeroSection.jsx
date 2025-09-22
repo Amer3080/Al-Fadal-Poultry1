@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import heroMeta from "../../assets/images/Hero.avif?width=396;792;1188&format=avif;webp&metadata";
 import { useTranslation } from "react-i18next";
 import { DataContext } from "../../Components/Context/DataContext";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
@@ -10,7 +9,7 @@ import GrainIcon from "@mui/icons-material/Grain";
 import { Link } from "react-router-dom";
 
 const StyledHeroSection = styled(Box)(({ theme }) => ({
-  backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
+  backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(/src/assets/images/Hero.avif)`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
@@ -23,12 +22,12 @@ const StyledHeroSection = styled(Box)(({ theme }) => ({
   padding: "120px 0",
 
   [theme.breakpoints.up("sm")]: {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(/src/assets/images/Hero.avif)`,
     padding: "80px 0",
   },
 
   [theme.breakpoints.up("md")]: {
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(${heroMeta})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6)), url(/src/assets/images/Hero.avif)`,
     padding: "80px 0",
   },
 
@@ -129,6 +128,15 @@ export default function HeroSection({ HeadText }) {
           <IconBreadcrumbs textLink={HeadText} locale={locale} />
         </Container>
       </StyledHeroSection>
+      <img
+        srcSet="/src/assets/images/Hero.avif 1x, /src/assets/images/Hero.webp 2x"
+        src="/src/assets/images/Hero.avif"
+        alt="Hero"
+        width="800"
+        height="400"
+        loading="eager"
+        style={{ width: "100%", height: "auto" }}
+      />
     </Box>
   );
 }

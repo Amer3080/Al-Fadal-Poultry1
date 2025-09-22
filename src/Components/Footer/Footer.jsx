@@ -19,7 +19,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import MailOutline from "@mui/icons-material/MailOutline";
-import logo from "../../assets/images/Logo.avif";
+import logo from "../../assets/images/Logo.webp";
 
 export default function Footer() {
   const { t } = useTranslation();

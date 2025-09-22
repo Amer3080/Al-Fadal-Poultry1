@@ -11,7 +11,7 @@ import MasterLayout from "./Components/MasterLayout/MasterLayout";
 import NotFound from "./Components/NotFound/NotFound";
 
 import CircularIndeterminate from "./Components/CircularIndeterminate/CircularIndeterminate.jsx";
-import image from "./assets/images/Logo.avif";
+import image from "./assets/images/Logo.webp";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("./Pages/Home/Home"));
@@ -95,7 +95,7 @@ function App() {
         <link
           rel="icon"
           type="image/png"
-          href="src/assets/images/Logo.png"
+          href="src/assets/images/Logo.webp"
           as="image"
           crossOrigin="anonymous"
         />

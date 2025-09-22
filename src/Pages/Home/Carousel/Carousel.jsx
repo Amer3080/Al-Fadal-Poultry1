@@ -12,13 +12,14 @@ import { DataContext } from "../../../Components/Context/DataContext";
 import { useTranslation } from "react-i18next";
 import iconPng from "../../../assets/images/11.avif";
 
-const Slider = lazy(async () => {
-  await Promise.all([
+// lazy-load CSS و JS الخاصين بـ react-slick فقط عند الحاجة
+const LazySlider = lazy(() =>
+  Promise.all([
     import("slick-carousel/slick/slick.css"),
     import("slick-carousel/slick/slick-theme.css"),
-  ]);
-  return import("react-slick");
-});
+    import("react-slick"),
+  ]).then(([, , module]) => ({ default: module.default }))
+);
 
 const LogoItem = styled(Box)({
   display: "flex !important",
@@ -43,12 +44,29 @@ function Carousel() {
   }, [i18n, locale]);
 
   const slides = useMemo(
-    () => [
-      t("Al-Fadal Poultry"),
-      t("Al-Fadal Poultry"),
-      t("Al-Fadal Poultry"),
-      t("Al-Fadal Poultry"),
-    ],
+    () =>
+      [0, 1, 2, 3].map((_, idx) => (
+        <LogoItem key={idx}>
+          <Typography
+            component="span"
+            sx={{
+              fontFamily: "Marhey",
+              fontSize: "3.5vw",
+              fontWeight: 900,
+              color: "#255946",
+              whiteSpace: "nowrap",
+            }}>
+            {t("Al-Fadal Poultry")}
+          </Typography>
+          <IconImage
+            crossOrigin="anonymous"
+            src={iconPng}
+            alt={t("Chicken icon")}
+            loading="lazy"
+            decoding="async"
+          />
+        </LogoItem>
+      )),
     [t]
   );
 
@@ -76,36 +94,10 @@ function Carousel() {
     <Box
       component="section"
       aria-labelledby="carousel-heading"
-      sx={{
-        mb: 8,
-        overflow: "hidden !important", // merged from .custom_slider
-      }}>
+      sx={{ mb: 8, overflow: "hidden !important" }}>
       <Suspense
         fallback={<div style={{ textAlign: "center" }}>{t("Loading…")}</div>}>
-        <Slider {...settings}>
-          {slides.map((label, idx) => (
-            <LogoItem key={idx}>
-              <Typography
-                component="span"
-                sx={{
-                  fontFamily: "Marhey",
-                  fontSize: "3.5vw",
-                  fontWeight: 900,
-                  color: "#255946",
-                  whiteSpace: "nowrap",
-                }}>
-                {label}
-              </Typography>
-              <IconImage
-                crossOrigin="anonymous"
-                src={iconPng}
-                alt={t("Chicken icon")}
-                loading="lazy"
-                decoding="async"
-              />
-            </LogoItem>
-          ))}
-        </Slider>
+        <LazySlider {...settings}>{slides}</LazySlider>
       </Suspense>
     </Box>
   );

@@ -148,7 +148,7 @@ function MyGallery() {
               onClick={() => handleOpen(idx)}
               sx={{ cursor: "pointer", borderRadius: 1, overflow: "hidden" }}>
               <img
-                crossOrigin="anonymous"
+                srcSet={img.src}
                 src={img.src}
                 alt={img.alt}
                 loading="lazy"

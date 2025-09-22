@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo } from "react";
 import Header from "../../../Hooks/Header";
 import image from "../../../assets/images/Frame.avif";
-import imgJpg from "../../../assets/images/5.avif";
+import imgJpg from "../../../assets/images/5.webp";
 import {
   Box,
   Divider,

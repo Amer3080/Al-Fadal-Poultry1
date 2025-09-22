@@ -8,10 +8,10 @@ import {
   CardContent,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import { FaShippingFast } from "react-icons/fa";
-import { GiChicken } from "react-icons/gi";
-import { PiFarmLight } from "react-icons/pi";
-import { MdOutlineSupportAgent } from "react-icons/md";
+import { FaShippingFast } from 'react-icons/fa';;;;;
+import { GiChicken } from 'react-icons/gi';;;;;
+import { PiFarmLight } from 'react-icons/pi';;;;;
+import { MdOutlineSupportAgent } from 'react-icons/md';;;;;
 import { DataContext } from "../../../Components/Context/DataContext";
 import { useTranslation } from "react-i18next";
 const ServiceCard = styled(Card)({

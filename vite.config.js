@@ -1,54 +1,20 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import compression from "vite-plugin-compression";
-
+import viteCompression from "vite-plugin-compression";
+import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     react(),
-    // ضغط Brotli للأصول
-    compression({
-      algorithm: "brotliCompress",
-      ext: ".br",
-      threshold: 10240
-    }),
-    // ضغط Gzip للأصول
-    compression({
-      algorithm: "gzip",
-      ext: ".gz",
-      threshold: 10240
-    })
+    // Gzip/Brotli compression for smaller JS/CSS
+    viteCompression(),
+    visualizer({ open: true }),
   ],
+
   build: {
-    // إزالة الـ inline sourcemap عند الإنتاج لخفض حجم الباقة
-    sourcemap: false,
-    chunkSizeWarningLimit: 600,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (
-              id.includes("react") ||
-              id.includes("react-dom") ||
-              id.includes("react-router-dom") ||
-              id.includes("react-helmet-async") ||
-              id.includes("i18next")
-            ) {
-              return "vendor-react";
-            }
-            if (
-              id.includes("@mui") ||
-              id.includes("styled-components") ||
-              id.includes("@emotion")
-            ) {
-              return "vendor-mui";
-            }
-            if (id.match(/\.(woff2?|ttf|eot)$/)) {
-              return "vendor-fonts";
-            }
-            return "vendor-others";
-          }
-        }
-      }
-    }
-  }
+    minify: "esbuild", // Fast minification for JS/CSS
+    cssCodeSplit: true, // Split CSS for better caching
+    assetsInlineLimit: 4096, // Inline small assets
+    sourcemap: false, // Disable sourcemaps in production for smaller build
+    outDir: "dist",
+  },
 });
