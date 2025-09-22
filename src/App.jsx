@@ -64,24 +64,21 @@ function App() {
         {/* Open Graph / Twitter */}
         <meta name="twitter:card" content="Al-Fadal Poultry" />
         {/* Preconnect to font origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-          crossOrigin="anonymous"
+          href="https://fonts.googleapis.com/css2?family=Your+Font:wght@400;700&display=swap"
+          rel="stylesheet"
         />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+
         {/* The font */}
-        {/* <link
+        <link
           rel="preload"
           href="/node_modules/slick-carousel/slick/fonts/slick.woff"
           as="font"
           type="font/woff"
           crossorigin
-        /> */}
+        />
 
         {/* Preload core Roboto stylesheet */}
         <link
