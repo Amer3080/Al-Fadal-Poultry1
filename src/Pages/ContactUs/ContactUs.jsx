@@ -15,7 +15,7 @@ import {
   IconButton,
 } from "@mui/material";
 
-import { FaMapMarkerAlt, FaInstagram, FaFacebook, FaTwitter, FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';;;;
+import { FaMapMarkerAlt, FaInstagram, FaFacebook, FaTwitter, FaClock, FaEnvelope, FaPhone } from 'react-icons/fa';;;;;
 import {
   FormControl,
   InputLabel,

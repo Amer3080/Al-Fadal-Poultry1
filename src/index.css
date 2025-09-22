@@ -12,3 +12,12 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* override slick font to use public copy and make it non-blocking */
+@font-face {
+  font-family: "slick";
+  src: url("/fonts/slick.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

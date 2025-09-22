@@ -9,11 +9,11 @@ import {
   Grid,
   Card,
 } from "@mui/material";
-import { IoIosArrowDown } from 'react-icons/io';;;;
+import { IoIosArrowDown } from 'react-icons/io';;;;;
 
-import { FaPlane, FaHotel, FaPassport, FaUmbrella, FaSuitcase } from 'react-icons/fa';;;;
+import { FaPlane, FaHotel, FaPassport, FaUmbrella, FaSuitcase } from 'react-icons/fa';;;;;
 
-import { FaGlobeAmericas } from 'react-icons/fa';;;;
+import { FaGlobeAmericas } from 'react-icons/fa';;;;;
 import { styled } from "@mui/material";
 import HeroSection from "../../Components/HeroSection/HeroSection";
 import { DataContext } from "../../Components/Context/DataContext";
